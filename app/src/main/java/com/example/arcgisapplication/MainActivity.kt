@@ -28,7 +28,6 @@ import com.esri.arcgisruntime.security.AuthenticationManager
 import com.esri.arcgisruntime.security.DefaultAuthenticationChallengeHandler
 import java.util.*
 
-
 class MainActivity : AppCompatActivity() {
     private val TAG = MainActivity::class.java.simpleName
 
@@ -44,21 +43,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-// Create a DefaultAuthenticationChallengeHandler, passing in an Android Context (e.g. the current Activity)
+        // Create a DefaultAuthenticationChallengeHandler, passing in an Android Context (e.g. the current Activity)
         val handler = DefaultAuthenticationChallengeHandler(this)
-// Set the challenge handler onto the AuthenticationManager
+        // Set the challenge handler onto the AuthenticationManager
         AuthenticationManager.setAuthenticationChallengeHandler(handler)
 
         mDrawerTitle = title
         // inflate MapView from layout
         mMapView = findViewById(R.id.mapView)
-// create a map with Topographic Basemap
+        // create a map with Topographic Basemap
         val map = ArcGISMap(Basemap.Type.STREETS, 20.5937, 78.9629, 3)
         // set the map to be displayed in this view
         mMapView.map = map
 
         // inflate the Basemap and Layer list views
-        mBasemapListView = findViewById(R.id.basemap_list)
+        mBasemapListView = this.findViewById(R.id.basemap_list)
         mLayerListView = findViewById(R.id.layer_list)
         mDrawerLayout = findViewById(R.id.drawer_layout)
 
@@ -171,14 +170,14 @@ class MainActivity : AppCompatActivity() {
         }
         // click handling for the cancel button
         val cancelButton = saveMapDialog.getButton(DialogInterface.BUTTON_NEGATIVE)
-        cancelButton.setOnClickListener { v -> saveMapDialog.dismiss() }
+        cancelButton.setOnClickListener { saveMapDialog.dismiss() }
     }
 
     private fun saveMap(title: String, tags: Iterable<String>, description: String) {
-// create a portal to arcgis
+        // create a portal to arcgis
         val portal = Portal("https://www.arcgis.com", true);
         portal.addDoneLoadingListener {
-            if (portal.getLoadStatus() == LoadStatus.LOADED) {
+            if (portal.loadStatus == LoadStatus.LOADED) {
                 // call save as async and pass portal info, as well as details of the map including title, tags and description
                 val saveAsAsyncFuture = mMapView.getMap()
                     .saveAsAsync(portal, null, title, tags, description, null, true)

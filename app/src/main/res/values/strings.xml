@@ -2,8 +2,7 @@
     <string name="app_name">ArcGISApplication</string>
     <string name="layer_selection">Add operational layer</string>
     <string name="basemap_selection">Choose a basemap</string>
-    <string name="world_time_zones">
-        https://sampleserver6.arcgisonline.com/arcgis/rest/services/WorldTimeZones/MapServer
+    <string name="world_time_zones">https://sampleserver6.arcgisonline.com/arcgis/rest/services/WorldTimeZones/MapServer
     </string>
     <string name="us_census">https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer</string>
 
@@ -33,7 +32,6 @@
     </string-array>
 
 
-
     <!--open Existing map-->
     <!-- navigation drawer items -->
     <string name="drawer_open">Open navigation drawer</string>
@@ -50,6 +48,9 @@
     <string name="webmap_houses_with_mortgages_title">Houses with mortgages</string>
     <string name="webmap_usa_tapestry_segmentation_title">USA tapestry segmentation</string>
     <string name="webmap_geology_us_title">Geology of United States</string>
+
+
+    <string name="location_permission_denied">User denied permission for device location.</string>
 
 
 </resources>
